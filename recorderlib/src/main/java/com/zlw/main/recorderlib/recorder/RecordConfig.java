@@ -29,6 +29,11 @@ public class RecordConfig implements Serializable {
      */
     private int sampleRate = 16000;
 
+    /**
+     * 歌曲压缩质量
+     */
+    private int quality = 2;
+
     /*
         * 录音文件存放路径，默认sdcard/Record
      */
@@ -60,6 +65,13 @@ public class RecordConfig implements Serializable {
         this.sampleRate = sampleRate;
     }
 
+    public int getQuality() {
+        return quality;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
 
     public String getRecordDir() {
         return recordDir;

@@ -41,7 +41,7 @@ public class Mp3EncodeThread extends Thread {
 
         Logger.w(TAG, "in_sampleRate:%s，getChannelCount:%s ，out_sampleRate：%s 位宽： %s,",
                 sampleRate, currentConfig.getChannelCount(), sampleRate, currentConfig.getRealEncoding());
-        Mp3Encoder.init(sampleRate, currentConfig.getChannelCount(), sampleRate, currentConfig.getRealEncoding());
+        Mp3Encoder.init(sampleRate, currentConfig.getChannelCount(), sampleRate, currentConfig.getRealEncoding(), currentConfig.getQuality());
     }
 
     @Override
