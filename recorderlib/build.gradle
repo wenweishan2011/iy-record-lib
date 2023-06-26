@@ -33,25 +33,30 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+// Because the components are created only during the afterEvaluate phase, you must
+// configure your publications using the afterEvaluate() lifecycle method.
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
 
-group = 'com.github.IYLib' // 替换为您的项目的 Group ID
-version = '1.1.1' // 替换为您的项目的版本号
-
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/wenweishan2011/iy-record-lib")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.IYLib'
+                artifactId = 'iy-record-lib'
+                version = '2.0'
             }
-        }
-    }
-    publications {
-        gpr(MavenPublication) {
-//            from(components.java)
-            artifact("$buildDir/outputs/aar/recorderlib-release.aar")
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = 'com.github.IYLib'
+                artifactId = 'iy-record-lib-debug'
+                version = '2.0'
+            }
         }
     }
 }
