@@ -107,9 +107,9 @@ public class RecordConfig implements Serializable {
      */
     public int getRealEncoding() {
         if (encodingConfig == AudioFormat.ENCODING_PCM_8BIT) {
-            return 8;
+            return 128;
         } else if (encodingConfig == AudioFormat.ENCODING_PCM_16BIT) {
-            return 16;
+            return 256;
         } else {
             return 0;
         }
