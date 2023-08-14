@@ -46,7 +46,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.IYLib'
                 artifactId = 'iy-record-lib'
-                version = '2.0'
+                version = '3.0'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
@@ -55,7 +55,7 @@ afterEvaluate {
 
                 groupId = 'com.github.IYLib'
                 artifactId = 'iy-record-lib-debug'
-                version = '2.0'
+                version = '3.0'
             }
         }
     }
